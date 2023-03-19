@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <div class="start popup" id="start-popup">
+        <h1>Welcome to the Game</h1>
+        <p id="start-para">Don't tell me, you don't know how to play this game. This is an easy childhood game.<br />Select R (Rock), P, or S and beat the
+            computer.<br /> Finally, this game has <b>Five matches</b>.<br/>
+            You have to win more than <b>Three matches</b>.</p>
+        <button id="start-game-btn">Start the game</button>
+    </div>
+    <div class="status popup" id="stetus-popup">
+        <h1 id="stetus-head">Start</h1>
+        <p id="stetus-para">Let's Play.</p>
+    </div>
+    <div class="game-area flex">
+        <div class="top flex">
+            <div id="human-point" class="bg-hu">0</div>
+            <div id="computer-point" class="bg-co">0</div>
+        </div>
+        <div class="center flex">
+            <div class="human-area bg-hu" id="human-area"><img src="assets/man.png" alt="You"></div>
+            <div class="computer-area bg-co" id="computer-area"><img src="assets/ai.png" alt=""></div>
+        </div>
+        <div class="bottom flex hide" id="bottom-buttons">
+            <button id="rock-btn" data-value="0"><img src="assets/rock.png"></button>
+            <button id="paper-btn" data-value="1"><img src="assets/paper.png"></button>
+            <button id="scissors-btn" data-value="2"><img src="assets/scissors.png"></button>
+        </div>
+    </div>
+    <div class="end popup" id="end-popup">
+        <h1 id="end-head">You win the Match</h1>
+        <p id="end-para">Well done what a Match.If you like play game Again</p>
+        <button id="restart-game-btn">Retart the game</button>
+        <button><a href="comment.html">Add Comment</a></button>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

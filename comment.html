@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment About My Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Kalam', cursive;
+            font-size: 20px;
+        }
+
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        p{
+            margin: 10px;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        input,
+        textarea {
+            font-family: 'Kalam', cursive;
+            font-size: 22px;
+            outline-color: #ff8c09;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            border: none;
+            border-bottom: 1px solid #000;
+            padding: 5px 5px;
+            margin: 20px 10px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 50%;
+            resize: auto;
+            border: none;
+            margin: 5px 10px;
+            border-bottom: 1px solid #000;
+            border-top: 1px solid #000;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            border: none;
+            background-color: #ff8c09;
+            padding: 8px 30px;
+            margin: 20px 10px;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover{
+            background-color: #ff9e30;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Comment</h1>
+        <p>Tell me about your Idea about this Game.<br> Is there any Bug or Glitch, About Interface,User Experience?<br>simply
+            type your name and a message.<br> <b>Thank You</b>
+        </p>
+        <form action="https://formsubmit.co/sltechfire@gmail.com" method="post">
+            <input type="text" placeholder="Your Name" name="name"><br>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Idea"></textarea><br>
+            <input type="hidden" name="_template" value="table">
+            <!-- <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html"> -->
+            <input type="submit">
+        </form>
+    </div>
+</body>
+
+</html>
