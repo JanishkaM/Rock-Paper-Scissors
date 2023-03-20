@@ -20,15 +20,15 @@ function loseF() {
     stetusPara.innerHTML = losePara[selectLosePara]
 }
 //add Points for computer and User
-function addUserPoints(){
+function addUserPoints() {
     UserPoints += 1
 }
-function addComputerPoints(){
+function addComputerPoints() {
     computerPoints += 1
 }
 // Prasses for win of Lose
-const winPara = ['Lets Go you Win', 'Nice shot', 'Wll done']
-const losePara = ["Football is a simple game.", 'Try again Bro', 'Think double']
+const winPara = ['Lets Go you Win. Nice 💪.', 'Nice shot can you do it again 👊.', 'Wll done good luck for next round 👍.']
+const losePara = ["You konw football is a simple game 😏.", 'Try again you can beat 😮.', 'Think double and do again 🤔.']
 let selectWinPara
 let selectLosePara
 // Image section
@@ -43,6 +43,8 @@ const items = ["rock", "paper", "scissors"]
 // Points
 const humanPointEl = document.getElementById("human-point")
 const computerPointEl = document.getElementById("computer-point")
+const humanPointElEnd = document.getElementById("human-point-end")
+const computerPointElEnd = document.getElementById("computer-point-end")
 let computerPoints = 0
 let UserPoints = 0
 // selections for user and computer
@@ -53,7 +55,7 @@ let computerSelection
 let gameRounds = 0
 let drawrounds = 0
 // start game button function
-startBtn.addEventListener("click", function() {
+startBtn.addEventListener("click", function () {
     bottomButtons.classList.remove('hide')
     startPopup.style = "display: none;"
     for (let i = 0; i < 3; i++) {
@@ -64,7 +66,7 @@ startBtn.addEventListener("click", function() {
                 userSelection = items[userSelectionNum]
                 computerSelectionF()
                 gameResult()
-                bottomButtons.classList.remove('hide')
+                stetusPopupShow()
             } else {
                 gameResult()
                 restartGame()
@@ -93,21 +95,30 @@ function restartGame() {
         computerSelectionImg.innerHTML = `<img src = "assets/ai.png">`
         humanSelectionImg.innerHTML = `<img src="assets/man.png">`
         bottomButtons.classList.remove('hide')
+        computerSelectionImg.classList.remove("filter")
+        humanSelectionImg.classList.remove("filter")
     })
 }
+// Change color of lose oponent selection Image
+function computerLoseImageColor() {
+    computerSelectionImg.classList.add("filter")
+    humanSelectionImg.classList.remove("filter")
+}
+function userLoseImageColor() {
+    humanSelectionImg.classList.add("filter")
+    computerSelectionImg.classList.remove("filter")
+}
 // stetus Popup Showing and Hiding
-
 function stetusPopupShow() {
     stetusPopup.style = "display: block;"
-
-    setTimeout(stetusPopupHide, 1100)
-
+    bottomButtons.classList.add('hide')
+    setTimeout(stetusPopupHide, 1500)
     function stetusPopupHide() {
         stetusPopup.style = "display: none;"
+        bottomButtons.classList.remove('hide')
     }
     computerSelectionImg.innerHTML = `<img src = "assets/${computerSelection}.png">`
     humanSelectionImg.innerHTML = `<img src="assets/${userSelection}.png">`
-
 }
 // gameResult genarate
 function gameResult() {
@@ -115,39 +126,40 @@ function gameResult() {
     selectLosePara = Math.floor(Math.random() * 3)
     if (computerSelection === userSelection) {
         stetusHead.textContent = "Match Draw"
-        stetusPara.innerHTML = "Try again"
+        stetusPara.innerHTML = "Try again 😐"
         drawrounds += 1
-        stetusPopupShow()
+        computerSelectionImg.classList.remove("filter")
+        humanSelectionImg.classList.remove("filter")
     }
     if (computerSelection === 'rock' && userSelection === 'scissors') {
         addComputerPoints()
+        userLoseImageColor()
         loseF()   //send text to stetus Popup
-        stetusPopupShow()
     }
     if (computerSelection === 'rock' && userSelection === 'paper') {
         addUserPoints()
+        computerLoseImageColor()
         winF()   //send text to stetus Popup
-        stetusPopupShow()
 
     } if (computerSelection === 'paper' && userSelection === 'scissors') {
         addUserPoints()
+        computerLoseImageColor()
         winF()
-        stetusPopupShow()
 
     } if (computerSelection === 'paper' && userSelection === 'rock') {
         addComputerPoints()
+        userLoseImageColor()
         loseF()
-        stetusPopupShow()
 
     } if (computerSelection === 'scissors' && userSelection === 'paper') {
         addComputerPoints()
+        userLoseImageColor()
         loseF()
-        stetusPopupShow()
 
     } if (computerSelection === 'scissors' && userSelection === 'rock') {
         addUserPoints()
+        computerLoseImageColor()
         winF()
-        stetusPopupShow()
     }
     // add end Poppup details
     if (computerPoints > UserPoints) {
@@ -172,6 +184,8 @@ function gameResult() {
     }
     humanPointEl.innerText = UserPoints
     computerPointEl.innerText = computerPoints
+    humanPointElEnd.innerHTML = `Your Points: ${UserPoints}`
+    computerPointElEnd.innerHTML = `Computer Points: ${computerPoints}`
 }
 
 

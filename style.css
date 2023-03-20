@@ -10,6 +10,9 @@ h1{
     font-size: 50px;
     line-height: 55px;
 }
+img{
+    filter: drop-shadow(1px 6px 5px rgba(56, 56, 56, 0.637));
+}
 button{
     all: unset;
     font-weight: 700;
@@ -25,6 +28,7 @@ button:hover{
 }
 b{
     font-weight: bold;
+    color: #ff8c09;
 }
 a{
     text-decoration: none;
@@ -56,6 +60,23 @@ a{
 .end{
     display: none;
 }
+.end .end-points{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #ff8800;
+    margin-bottom: 8px;
+}
+.end .end-points>*{
+    margin: 10px;
+    font-size: 20px !important;
+}
+#computer-point-end{
+    color: #ff8800 !important;
+}
+#human-point-end{
+    color: #90d8f9 !important;
+}
 /* game-area and reuseables */
 /* ====================== */
 .flex{
@@ -80,11 +101,24 @@ a{
 }
 /* game center */
 /* ====================== */
-.game-area .center{
-    height: 50vh;
-}
 .game-area .center img{
     max-width: 80%;
+    animation: move 1s alternate infinite;
+    filter: drop-shadow(1);
+}
+.game-area .center .human-area img{
+    animation-delay: 1s;
+}
+.filter{
+    filter: brightness(0.3);
+}
+@keyframes move {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(10px);
+    }
 }
 /* game bottom */
 /* ====================== */
@@ -97,6 +131,15 @@ a{
 .game-area .bottom img{
     width: 60%;
     margin-top: 10px;
+    animation: rotate 1s alternate-reverse infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(5deg);
+    }
 }
 .game-area .bottom button{
     width: fit-content;
@@ -123,6 +166,12 @@ a{
     }
   }
 @media screen and (max-width: 450px) {
+    body{
+        font-size: 16px;
+    }
+    h1{
+        font-size: 25px;
+    }
     .game-area .bottom{
         width: 100%;
     }
