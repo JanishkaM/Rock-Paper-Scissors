@@ -10,7 +10,7 @@ h1{
     font-size: 50px;
 }
 img{
-    filter: drop-shadow(1px 6px 5px rgba(56, 56, 56, 0.637));
+    /*filter: drop-shadow(1px 6px 5px rgba(56, 56, 56, 0.637));*/
 }
 button{
     all: unset;
